@@ -1,8 +1,12 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useMemo } from 'react'
 import PostItem from './PostItem'
 import { PostListItemType } from 'types/PostItem.types'
+import useInfiniteScroll, {
+  useInfiniteScrollType,
+} from 'hooks/useInfiniteScroll'
 
 type PostListProps = {
+  selectedCategory: string
   posts: PostListItemType[]
 }
 export type PostType = {
@@ -25,10 +29,33 @@ export type PostType = {
   link: '<https://www.google.co.kr/>',
 } */
 
-const PostList: FunctionComponent<PostListProps> = function ({ posts }) {
+const PostList: FunctionComponent<PostListProps> = function ({
+  selectedCategory,
+  posts,
+}) {
+  const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
+    selectedCategory,
+    posts,
+  )
+
+  /*   const postListData = useMemo(
+    () =>
+      posts.filter(
+        ({
+          node: {
+            frontmatter: { categories },
+          },
+        }: PostListItemType) =>
+          selectedCategory !== 'All'
+            ? categories.includes(selectedCategory)
+            : true,
+      ),
+    [selectedCategory],
+  ) */
+
   return (
-    <main>
-      {posts.map(({ node: { id, frontmatter } }: PostType) => (
+    <main ref={containerRef}>
+      {postList.map(({ node: { id, frontmatter } }: PostListItemType) => (
         <PostItem {...frontmatter} link="https://www.google.co.kr/" key={id} />
       ))}
     </main>
