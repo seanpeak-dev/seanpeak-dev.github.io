@@ -1,6 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import ProfileImage from 'components/Main/ProfileImage'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
+
+type IntroductionProps = {
+  profileImage: IGatsbyImageData
+}
 
 const Title = styled.h1`
   font-size: 3.4822rem;
@@ -52,14 +57,16 @@ const ProfileText = styled.p`
   }
 `
 
-const Introduction: FunctionComponent = function () {
+const Introduction: FunctionComponent<IntroductionProps> = function ({
+  profileImage,
+}) {
   return (
     <header>
       <Title>seanpeak</Title>
       <SubTitle>잘하기보다 자라기</SubTitle>
       <Container>
         <div>
-          <ProfileImage />
+          <ProfileImage profileImage={profileImage} />
           <ProfileText>
             <div>
               안녕하세요. 웹 프론트엔드 개발자이자 당신의 배움과 성장을 함께
