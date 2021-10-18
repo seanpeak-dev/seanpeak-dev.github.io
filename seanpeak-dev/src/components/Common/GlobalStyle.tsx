@@ -22,7 +22,7 @@ const defaultStyle = css`
 
   a,
   a:hover {
-    color: inherit;
+    color: #4665b7;
     text-decoration: none;
     cursor: pointer;
   }

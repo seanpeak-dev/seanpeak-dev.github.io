@@ -22,8 +22,18 @@ const Container = styled.div`
 
   & div {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+
+    @media (max-width: 364px) {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0 auto;
+      font-size: 12px;
+    }
   }
 `
 const ProfileText = styled.p`
@@ -36,21 +46,28 @@ const ProfileText = styled.p`
   vertical-align: center;
   background-color: #f9f9f9;
   padding: 16px;
+
+  & div {
+    display: block;
+  }
 `
 
 const Introduction: FunctionComponent = function () {
   return (
     <header>
       <Title>seanpeak</Title>
-      <SubTitle>안녕하세요.</SubTitle>
+      <SubTitle>잘하기보다 자라기</SubTitle>
       <Container>
         <div>
           <ProfileImage />
           <ProfileText>
-            러닝맨은 당신의 배움과 성장을 도와줄 미디어입니다. 배우는 인간
-            4명(Eddy, Jesse, Kay, Robbie)의 성장 프로젝트이기도 합니다. 각자
-            격주로 글을 올립니다. 직접 경험한 생각만 담습니다. 멋있는 척 하지
-            않습니다. [러닝맨 구독하기]
+            <div>
+              안녕하세요. 웹 프론트엔드 개발자이자 당신의 배움과 성장을 함께
+              하는 동료, SEAN입니다. 배우는 한 인간의 성장 프로젝트이기도
+              합니다. 격일로 글을 올립니다. 직접 경험한 생각만 담습니다. 멋있는
+              척 하지 않습니다.{' '}
+              <a href="https://github.com/seanpeak-dev">[깃허브 바로가기]</a>
+            </div>
           </ProfileText>
         </div>
       </Container>
