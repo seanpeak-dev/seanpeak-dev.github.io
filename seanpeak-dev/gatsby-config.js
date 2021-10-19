@@ -3,7 +3,7 @@ module.exports = {
     title: `seanpeak`,
     description: `웹 프론트엔드 개발자 SEAN의 성장 프로젝트`,
     author: `@seanpeak-dev`,
-    siteUrl: `https://seanpeak-dev.github.io/`,
+    siteUrl: `http://seanpeak-dev.com/`,
   },
   plugins: [
     `gatsby-plugin-emotion`,
@@ -91,7 +91,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://seanpeak-dev.github.io/',
+        siteUrl: 'http://seanpeak-dev.com/',
         stripQueryString: true,
       },
     },
