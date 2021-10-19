@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://seanpeak-dev.github.io/sitemap/sitemap-index.xml
+Host: https://seanpeak-dev.github.io
