@@ -3,7 +3,7 @@ module.exports = {
     title: `seanpeak`,
     description: `웹 프론트엔드 개발자 SEAN의 성장 프로젝트`,
     author: `@seanpeak-dev`,
-    siteUrl: `https://seanpeak-dev.com`,
+    siteUrl: `https://seanpeak-dev.github.io/`,
   },
   plugins: [
     `gatsby-plugin-emotion`,
@@ -86,6 +86,22 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://seanpeak-dev.github.io/',
+        stripQueryString: true,
+      },
+    },
+    'gatsby-plugin-sitemap' /* 별도의 옵션이 없으면 모든 페이지를 Sitemap에 추가 */,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [
+          { userAgent: '*', allow: '/' },
+        ] /* 검색 엔진 구별 없이 모든 페이지를 크롤링 할 수 있도록 설정 */,
       },
     },
     {

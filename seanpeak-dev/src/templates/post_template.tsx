@@ -12,12 +12,16 @@ type PostTemplateProps = {
       edges: PostPageItemType[]
     }
   }
+  location: {
+    href: string
+  }
 }
 
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
   },
+  location: { href },
 }) {
   const {
     node: {
@@ -27,7 +31,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   } = edges[0]
 
   return (
-    <Template>
+    <Template title={title} description={summary} url={href} image="#">
       <PostHead title={title} date={date} categories={categories} />
       <PostContent html={html} />
       <CommentWidget />

@@ -14,6 +14,8 @@ const useInfiniteScroll = function (
 ): useInfiniteScrollType {
   const containerRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
+  const observer: MutableRefObject<IntersectionObserver | null> =
+    useRef<IntersectionObserver>(null)
   const [count, setCount] = useState<number>(1)
 
   const postListByCategory = useMemo<PostListItemType[]>(
@@ -32,7 +34,17 @@ const useInfiniteScroll = function (
   )
 
   // observer를 선언
-  const observer: IntersectionObserver = new IntersectionObserver(
+  useEffect(() => {
+    observer.current = new IntersectionObserver((entries, observer) => {
+      if (!entries[0].isIntersecting) return
+
+      setCount(value => value + 1)
+      observer.unobserve(
+        entries[0].target,
+      ) /* 관측중인 객체만 관측을 중지하도록 disconnect 대신 unobserve 메서드 사용 */
+    })
+  }, [])
+  /*   const observer: IntersectionObserver = new IntersectionObserver(
     (entries, observer) => {
       // 단 하나의 요소만 관측할 것이기 때문에 관측 요소 배열 파라미터에 해당하는 entries 인자에는 하나의 데이터만 존재
       if (!entries[0].isIntersecting) return
@@ -41,7 +53,7 @@ const useInfiniteScroll = function (
       setCount(value => value + 1)
       observer.disconnect()
     },
-  )
+  ) */
 
   // 선택된 카테고리가 변경된 경우에는 count 값을 1로 변경
   useEffect(() => setCount(1), [selectedCategory])
