@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import Introduction from 'components/Main/Introduction'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
-import Footer from 'components/Common/Footer'
 import PostList, { PostType } from 'components/Main/PostList'
 import { PostListItemType } from 'types/PostItem.types'
 import { graphql } from 'gatsby'
