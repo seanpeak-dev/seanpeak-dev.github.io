@@ -42,9 +42,23 @@ const PostData = styled.div`
   }
 
   & div {
-    font-size: 0.87055rem;
-    font-weight: 700;
-    margin-bottom: 1.722rem;
+    display: flex;
+    margin-bottom: 50px;
+
+    & span {
+      margin: 2.5px 5px;
+      background: rgb(241, 243, 245);
+      border-radius: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      height: 2rem;
+      border-radius: 1rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #4665b7;
+    }
   }
 `
 
@@ -61,7 +75,11 @@ const PostHead: FunctionComponent<PostHeadInfoProps> = function ({
       <Title>{title}</Title>
       <PostData>
         <p>{date}</p>
-        <div>{categories.join(' | ')}</div>
+        <div>
+          {categories.map(v => (
+            <span>{v}</span>
+          ))}
+        </div>
       </PostData>
     </PostHeadWrapper>
   )

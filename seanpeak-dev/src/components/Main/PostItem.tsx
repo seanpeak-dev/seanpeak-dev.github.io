@@ -31,12 +31,18 @@ const Category = styled.div`
 `
 const CategoryItem = styled.div`
   margin: 2.5px 5px;
-  padding: 3px 5px;
-  border-radius: 3px;
-  background: #8fb9aa;
+  background: rgb(241, 243, 245);
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2rem;
+  border-radius: 1rem;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
   font-size: 14px;
   font-weight: 700;
-  color: white;
+  color: #4665b7;
 `
 
 const PostItem: FunctionComponent<PostItemProps> = function ({

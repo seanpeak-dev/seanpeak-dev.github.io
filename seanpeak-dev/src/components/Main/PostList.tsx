@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react'
+import React, { FunctionComponent } from 'react'
 import PostItem from './PostItem'
 import { PostListItemType } from 'types/PostItem.types'
 import useInfiniteScroll, {

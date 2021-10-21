@@ -62,17 +62,16 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
 }) {
   return (
     <header>
-      <Title>seanpeak</Title>
-      <SubTitle>잘하기보다 자라기</SubTitle>
+      <Title>Sean</Title>
+      <SubTitle>지속 가능한 개발자</SubTitle>
       <Container>
         <div>
           <ProfileImage profileImage={profileImage} />
           <ProfileText>
             <div>
-              안녕하세요. 웹 프론트엔드 개발자이자 당신의 배움과 성장을 함께
-              하는 동료, SEAN입니다. 배우는 한 인간의 성장 프로젝트이기도
-              합니다. 격일로 글을 올립니다. 직접 경험한 생각만 담습니다. 멋있는
-              척 하지 않습니다.{' '}
+              안녕하세요. 웹 프론트엔드 개발자 Sean입니다. 배우는 한 인간의 성장
+              프로젝트입니다. 개발자로서의 지속 가능한 삶을 고민하고 있습니다.
+              &nbsp;
               <a href="https://github.com/seanpeak-dev">[깃허브 바로가기]</a>
             </div>
           </ProfileText>

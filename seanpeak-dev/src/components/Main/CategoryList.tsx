@@ -24,17 +24,25 @@ const CategoryListWrapper = styled.div`
 const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
   <Link to={to} {...props} />
 ))`
-  padding: 10px 10px 10px 0;
+  background: rgb(241, 243, 245);
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2rem;
+  border-radius: 1rem;
+  margin-top: 15px;
   margin-right: 16px;
   transition: all;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: 50px;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
   text-align: center;
   transition: all, ease-out;
   justify-content: flex-start;
   transition-duration: 0.1s;
+  font-size: 16px;
   font-weight: ${({ active }) => (active ? '700' : '400')};
 `
 
@@ -50,7 +58,7 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
           active={name === selectedCategory}
           key={name}
         >
-          {name}-{count}
+          {name}&nbsp;({count})
         </CategoryItem>
       ))}
     </CategoryListWrapper>
